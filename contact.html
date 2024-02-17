@@ -10,51 +10,74 @@
     <title>Contact Us</title>
 
     <!-- CSS Section -->
-    <link rel="stylesheet" href="../week2_1/node_modules/bootstrap/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="../week2_1/node_modules/@fortawesome/fontawesome-free/css/all.css">
-    <link rel="stylesheet" href="contentpp.css">
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="node_modules/@fortawesome/fontawesome-free/css/all.css">
+    <link rel="stylesheet" href="content/app.css">
 
 </head>
 <body>
 
 <header>
-    <nav class="navbar navbar-expand-lg bg-body-tertiary">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="index.html"><i class="fa-solid fa-building"></i> INFT 2202</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-                    <li class="nav-item">
-                        <a class="nav-link" aria-current="page" href="index.html"><i class="fa-solid fa-house"></i> Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="product.html"><i class="fa-solid fa-project-diagram"></i> Product</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="service.html"><i class="fa-solid fa-map-signs"></i> Service</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="about.html"><i class="fa-solid fa-info"></i> About Us</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link active" href="contact.html"><i class="fa-solid fa-envelope"></i> Contact Us</a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </nav>
+
 </header>
 
-<div class="container">
-    <h1>Contact Us</h1>
-</div>
+<main class="container">
+    <h1 class="mb-5">Contact Us</h1>
 
+    <div id="messageArea" ></div>
+
+
+    <div class="row justify-content-lg-center g-3">
+                <form class="col-lg-6 col-md-10 col-sm-10">
+
+            <div class="input-group mb-3">
+                <span class="input-group-text">Full Name</span>
+                <input id="fullName" name="fullName" type="text" class="form-control"
+                       aria-describedby="Full Name" aria-label="Full Name Input" required>
+            </div>
+
+            <div class="input-group mb-3">
+                <span class="input-group-text">Contact Number</span>
+                <input id="contactNumber" name="contactNumber" type="tel" class="form-control"
+                       aria-describedby="Contact Number" aria-label="Contact Number Input" required>
+            </div>
+
+            <div class="input-group mb-3">
+                <span class="input-group-text">Email</span>
+                <input id="email" type="email" class="form-control" aria-describedby="Email"
+                       aria-label="Email Input" required>
+            </div>
+
+            <div class="input-group mb-3">
+                <span class="input-group-text">Your Message</span>
+                <input id="message" name="message" class="form-control" 
+                          aria-describedby="Your Message" aria-label="Your Message Input">
+            </div>
+
+            <div class="input-group mb-3">
+                <input id="subscribeCheckbox" name="subscribeCheckbox" type="checkbox" class="form-check-input">
+                <label class="form-check-label" for="subscribeCheckbox">Subscribe to our contact list</label>
+            </div>
+
+            <button id="sendButton" type="submit" class="btn btn-primary"><i class="fa-solid fa-envelope"></i>Submit</button>
+            <button id="cancelButton" type="reset" class="btn btn-warning"><i class="fa-solid fa-rotate-left"></i>Cancel</button>
+
+        </form>
+
+        <div class = "col-lg-4 col-md-4">
+            <a href ="contact-list.html" class ="btn btn-primary"><i class ="fas fa-users fa-sm"></i>Show Contact List</a>
+        </div>
+
+        </div>
+
+</main>
 
 <!-- Scripting Section -->
-<script src="../week2_1/node_modules/jquery/dist/jquery.min.js"></script>
-<script src="../week2_1/node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
-<script src="scriptspp.js"></script>
+<script src="node_modules/jquery/dist/jquery.min.js"></script>
+<script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+<script src="./scripts/namespace.js"></script>
+<script src="./scripts/contact.js"></script>
+<script src="./scripts/app.js"></script>
+
 </body>
 </html>

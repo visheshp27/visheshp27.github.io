@@ -11,7 +11,7 @@
     line-height: 1;
     text-align: center;
     border: 1px solid darkgrey;
-    border-radius: 4xpx;
+    border-radius: 4px;
 }
 
 .input-group-addon .fa
@@ -24,6 +24,7 @@
     position:relative;
     z-index: 2;
     float:left;
+    width: 100%;
     margin-bottom: 0;
 }
 
