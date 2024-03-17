@@ -1,82 +1,73 @@
 "use strict";
-
+var core;
 (function (core) {
-
-    class User{
+    class User {
+        _displayName;
+        _emailAddress;
+        _userName;
+        _password;
+        constructor(displayName = "", emailAddress = "", userName = "", password = "") {
+            this._displayName = displayName;
+            this._emailAddress = emailAddress;
+            this._userName = userName;
+            this._password = password;
+        }
         get displayName() {
             return this._displayName;
         }
-
         set displayName(value) {
             this._displayName = value;
         }
-
         get emailAddress() {
             return this._emailAddress;
         }
-
         set emailAddress(value) {
             this._emailAddress = value;
         }
-
-        get username() {
-            return this._username;
+        get userName() {
+            return this._userName;
         }
-
-        set username(value) {
-            this._username = value;
+        set userName(value) {
+            this._userName = value;
         }
-
-        toString(){
-            return `Display Name: ${this._displayName}\nEmail Address: ${this._emailAddress}\nUsername: ${this._username};`
+        get password() {
+            return this._password;
         }
-
-        toJSON() {
-            return {
-                DisplayName : this._displayName,
-                EmailAddress : this._emailAddress,
-                Username : this._username,
-                Password : this._Password
+        set password(value) {
+            this._password = value;
+        }
+        toString() {
+            return `DisplayName: ${this._displayName} 
+                \nEmailAddress: ${this._emailAddress}\n Username: ${this._userName}\n`;
+        }
+        serialize() {
+            if (this._displayName !== "" && this._emailAddress !== "" && this._userName !== "") {
+                return `${this._displayName},${this._emailAddress},${this._userName}`;
             }
-        }
-
-        fromJSON(data){
-
-            this._displayName = data.DisplayName;
-            this._emailAddress = data.EmailAddress;
-            this._username = data.Username;
-            this._password = data.Password;
-        }
-
-
-        serialize(){
-
-            if(this._displayName !== "" && this._emailAddress !== "" && this._username !== ""){
-
-                return `${this._displayName}, ${this._emailAddress}, ${this._username}`;
-            }
-            console.error("Failed to serialize, one or more user attributes were missing");
+            console.error("One or more properties of the Contact are empty or invalid");
             return null;
-         }
-
-
-        constructor(displayName = "", emailAddress = "", username ="", password = ""){
-            this._displayName = displayName;
-            this._emailAddress = emailAddress;
-            this._username = username;
-            this._password = Password;
         }
-
-
-
-    deserialize(data) {
-        let propertyArray = data.split(",");
-        this._displayName = propertyArray[0];
-        this._emailAddress = propertyArray[1];
-        this._username = propertyArray[2];
-    }
-
-
+        deserialize(data) {
+            let propertyArray = data.split(",");
+            this._displayName = propertyArray[0];
+            this._emailAddress = propertyArray[1];
+            this._userName = propertyArray[2];
+        }
+        toJson() {
+            return {
+                DisplayName: this._displayName,
+                EmailAddress: this._emailAddress,
+                Username: this._userName,
+            };
+        }
+        fromJson(data) {
+            this._displayName = data.displayName;
+            this._emailAddress = data.emailAddress;
+            this._userName = data.userName;
+            this._password = data.password;
+        }
     }
     core.User = User;
-})(core ||(core ={}));
+    core.User = User;
+})(core || (core = {}));
+//# sourceMappingURL=user.js.map
